@@ -1,0 +1,42 @@
+﻿@page
+@model Fastfood1.Pages.Phieunhaps.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Phieunhap[0].Tongtien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phieunhap[0].Ngaylap)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Phieunhap) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tongtien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaylap)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
